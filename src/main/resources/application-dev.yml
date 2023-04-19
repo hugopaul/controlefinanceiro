@@ -17,7 +17,8 @@ spring:
     password: Reisapao123*
     platform: postgres
     driverClassName: org.postgresql.Driver
-
+server:
+  port: 8081
 
 #security:
 #  oauth2:
