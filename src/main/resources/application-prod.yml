@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://solidtechsolutions.com.br:5432/controlefinanceiro-prod
+    username: postgres
+    password: Reisapao123*
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+
+#security:
+#  oauth2:
+#    client:
+#      scope: password
+#  jwt:
+#    signing-key: aW1z
+#    url: http://localhost:4200
+#  expiration: 600000
+#  secret: pontoeletronico

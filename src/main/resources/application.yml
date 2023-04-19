@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/controlefinanceiro-dev
+    username: postgres
+    password: 123
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+
+
+#security:
+#  oauth2:
+#    client:
+#      scope: password
+#  jwt:
+#    signing-key: aW1z
+#    url: http://localhost:4200
+#  expiration: 600000
+#  secret: pontoeletronico
