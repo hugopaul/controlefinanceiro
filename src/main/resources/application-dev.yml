@@ -12,7 +12,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
-    url: jdbc:postgresql://nice_blackburn:5432/controlefinanceiro-dev
+    url: jdbc:postgresql://solidtechsolutions.com.br:5432/controlefinanceiro-dev
     username: postgres
     password: Reisapao123*
     platform: postgres
