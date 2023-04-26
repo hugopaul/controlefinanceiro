@@ -14,7 +14,7 @@ spring:
   datasource:
     url: jdbc:postgresql://solidtechsolutions.com.br:5432/controlefinanceiro-dev
     username: postgres
-    password: 123
+    password: Reisapao123*
     platform: postgres
     driverClassName: org.postgresql.Driver
 
