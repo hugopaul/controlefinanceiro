@@ -10,9 +10,9 @@ RUN mvn  clean package
 # Package stage
 #
 FROM openjdk:20-slim
-COPY --from=build /home/app/target/controle-financiero-0.0.5-SNAPSHOT.jar /usr/local/lib/
+COPY --from=build /home/app/target/controle-financiero-0.0.6-SNAPSHOT.jar /usr/local/lib/
 EXPOSE 8081
-ENTRYPOINT ["java","-Dspring.profiles.active=dev","-jar","/usr/local/lib/controle-financiero-0.0.5-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-Dspring.profiles.active=dev","-jar","/usr/local/lib/controle-financiero-0.0.6-SNAPSHOT.jar"]
 
 ##docker run -d -p 8080:8080 --name ponto-eletronico-java  hugopaul/ponto-eletronico-java
 ##docker build -t=hugopaul/ponto-eletronico-java .
