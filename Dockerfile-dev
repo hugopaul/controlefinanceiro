@@ -10,7 +10,7 @@ RUN mvn  clean package -Dspring-boot.run.profiles=dev
 # Package stage
 #
 FROM openjdk:20-slim
-COPY --from=build ./controle-financiero-0.0.3-SNAPSHOT.jar /usr/local/lib/
+COPY --from=build /home/app/target/controle-financiero-0.0.3-SNAPSHOT.jar /usr/local/lib/
 EXPOSE 8081
 ENTRYPOINT ["java","-jar","/usr/local/lib/controle-financiero-0.0.3-SNAPSHOT.jar"]
 
