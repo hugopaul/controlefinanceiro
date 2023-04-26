@@ -14,7 +14,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/controlefinanceiro-dev
     username: postgres
-    password: Reisapao123*
+    password: 123
     platform: postgres
     driverClassName: org.postgresql.Driver
 
