@@ -2,6 +2,7 @@
 # Build stage
 #
 FROM maven:3.8.6-openjdk-18 AS build
+USER root
 WORKDIR /home/app/
 COPY . .
 RUN mvn  clean package -Dspring-boot.run.profiles=prod
@@ -10,6 +11,7 @@ RUN mvn  clean package -Dspring-boot.run.profiles=prod
 # Package stage
 #
 FROM openjdk:20-slim
+USER root
 COPY --from=build /home/app/target/controle-financiero-0.0.10-SNAPSHOT.jar /usr/local/lib/
 EXPOSE 8082
 ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/usr/local/lib/controle-financiero-0.0.10-SNAPSHOT.jar"]
