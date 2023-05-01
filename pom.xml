@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.solidtechsolutions</groupId>
 	<artifactId>controle-financiero</artifactId>
-	<version>0.0.10-SNAPSHOT</version>
+	<version>0.0.11-SNAPSHOT</version>
 	<name>controle-financiero</name>
 	<description>controle-financiero</description>
 	<properties>
