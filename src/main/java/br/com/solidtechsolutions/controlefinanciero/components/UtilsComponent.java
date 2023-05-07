@@ -40,8 +40,8 @@ public class UtilsComponent {
         TipoGasto entity = new TipoGasto();
         entity.setDescricao(dto.getDescricao());
         entity.setNome(dto.getNome());
-        entity.setDataCriacao(LocalDateTime.now());
-        entity.setDataAtualizacao(dto.getDataAtualizacao());
+        //entity.setDataCriacao(null);
+        //entity.setDataAtualizacao(null);
         return entity;
     }
 
@@ -72,8 +72,8 @@ public class UtilsComponent {
         dto.setId(entity.getId());
         dto.setDescricao(entity.getDescricao());
         dto.setNome(entity.getNome());
-        dto.setDataCriacao(entity.getDataCriacao());
-        dto.setDataAtualizacao(entity.getDataAtualizacao());
+        dto.setDataCriacao(null);
+        dto.setDataAtualizacao(null);
         return dto;
     }
 
@@ -141,8 +141,8 @@ public class UtilsComponent {
                     dto.setId(entity.getId());
                     dto.setDescricao(entity.getDescricao());
                     dto.setNome(entity.getNome());
-                    dto.setDataCriacao(entity.getDataCriacao());
-                    dto.setDataAtualizacao(entity.getDataAtualizacao());
+                    //dto.setDataCriacao(entity.getDataCriacao());
+                    //dto.setDataAtualizacao(entity.getDataAtualizacao());
                     return dto;
                 })
                 .collect(Collectors.toList());

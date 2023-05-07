@@ -26,10 +26,10 @@ public class TipoGasto {
     @Column(nullable = false)
     private String descricao;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime dataCriacao;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime dataAtualizacao;
 
 }
