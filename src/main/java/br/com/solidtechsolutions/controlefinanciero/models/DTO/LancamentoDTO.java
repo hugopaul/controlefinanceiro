@@ -21,10 +21,16 @@ public class LancamentoDTO {
     private UUID id;
     private String descricao;
     private LocalDateTime dataHora;
-    private BigDecimal valor;
+    private String valor;
     private Categoria categoria;
     private TipoGasto tipoGasto;
     private Usuario usuario;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
+
+    private Boolean parcelado;
+
+    private int qtdParcela;
+
+    private Boolean despesaFixa;
 }

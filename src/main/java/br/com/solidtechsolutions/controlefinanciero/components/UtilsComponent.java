@@ -10,6 +10,7 @@ import br.com.solidtechsolutions.controlefinanciero.models.TipoGasto;
 import br.com.solidtechsolutions.controlefinanciero.models.Usuario;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class UtilsComponent {
     public Lancamento toEntityLancamento(LancamentoDTO dto) {
         Lancamento entity = new Lancamento();
         entity.setDescricao(dto.getDescricao());
-        entity.setValor(dto.getValor());
+        entity.setValor(new BigDecimal(dto.getValor().replace(",", "").replace(".", "")));
         entity.setDataHora(LocalDateTime.now());
         entity.setCategoria(dto.getCategoria());
         entity.setTipoGasto(dto.getTipoGasto());
@@ -58,7 +59,7 @@ public class UtilsComponent {
         LancamentoDTO dto = new LancamentoDTO();
         dto.setId(entity.getId());
         dto.setDescricao(entity.getDescricao());
-        dto.setValor(entity.getValor());
+        dto.setValor(String.valueOf(entity.getValor()));
         dto.setDataHora(entity.getDataHora());
         dto.setCategoria(entity.getCategoria());
         dto.setTipoGasto(entity.getTipoGasto());
@@ -84,7 +85,7 @@ public class UtilsComponent {
         entity.setSenha(dto.getSenha());
         entity.setDataAtualizacao(dto.getDataAtualizacao());
         entity.setDataCriacao(dto.getDataCriacao());
-        entity.setLancamentosGastos(dto.getLancamentosGastos());
+        //entity.setLancamentosGastos(dto.getLancamentosGastos());
 
         return entity;
     }
@@ -94,7 +95,7 @@ public class UtilsComponent {
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());
         dto.setEmail(entity.getEmail());
-        dto.setLancamentosGastos(entity.getLancamentosGastos());
+        //dto.setLancamentosGastos(entity.getLancamentosGastos());
         dto.setSenha(entity.getSenha());
         dto.setDataCriacao(entity.getDataCriacao());
         dto.setDataAtualizacao(entity.getDataAtualizacao());
@@ -125,7 +126,7 @@ public class UtilsComponent {
                     dto.setCategoria(entity.getCategoria());
                     dto.setUsuario(entity.getUsuario());
                     dto.setDataHora(entity.getDataHora());
-                    dto.setValor(entity.getValor());
+                    dto.setValor(String.valueOf(entity.getValor()));
                     dto.setDataCriacao(entity.getDataCriacao());
                     dto.setDataAtualizacao(entity.getDataAtualizacao());
                     return dto;
@@ -155,7 +156,7 @@ public class UtilsComponent {
                     dto.setSenha(entity.getSenha());
                     dto.setNome(entity.getNome());
                     dto.setEmail(entity.getEmail());
-                    dto.setLancamentosGastos(entity.getLancamentosGastos());
+                    //dto.setLancamentosGastos(entity.getLancamentosGastos());
                     dto.setDataCriacao(entity.getDataCriacao());
                     dto.setDataAtualizacao(entity.getDataAtualizacao());
                     return dto;

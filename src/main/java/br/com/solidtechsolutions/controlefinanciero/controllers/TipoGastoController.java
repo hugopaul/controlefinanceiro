@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/tipogastos")
 public class TipoGastoController {
 
@@ -27,7 +28,7 @@ public class TipoGastoController {
         return ResponseEntity.ok(tipoGastoService.salvarCategoria(tipoGastoDTO));
     }
     @GetMapping
-    public ResponseEntity<List<TipoGastoDTO>> buscarTipoGasto() {
+    public ResponseEntity<List<TipoGastoDTO>> buscarTipoGastos() {
 
         return ResponseEntity.ok(tipoGastoService.buscarTipoGasto());
     }

@@ -29,8 +29,8 @@ public class Usuario {
     @Column(nullable = false)
     private String senha;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Lancamento> lancamentosGastos;
+    //@OneToMany(mappedBy = "usuario")
+    //private List<Lancamento> lancamentosGastos;
 
     @Column
     private LocalDateTime dataCriacao;

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/lancamentos")
 public class LancamentoController {
 
@@ -23,11 +24,11 @@ public class LancamentoController {
 
     @PostMapping
     public ResponseEntity<LancamentoDTO> salvarLancamento(@RequestBody LancamentoDTO lancamentoDTO) {
-
+        System.out.println(lancamentoDTO);
         return ResponseEntity.ok(lancamentoService.salvarLancamento(lancamentoDTO));
     }
     @GetMapping
-    public ResponseEntity<List<LancamentoDTO>> buscarLancamento() {
+    public ResponseEntity<List<LancamentoDTO>> buscarLancamentos() {
 
         return ResponseEntity.ok(lancamentoService.buscarLancamento());
     }

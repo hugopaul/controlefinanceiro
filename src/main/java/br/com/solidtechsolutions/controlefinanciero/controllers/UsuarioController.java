@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
@@ -28,7 +29,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UsuarioDTO>> buscarUsuario() {
+    public ResponseEntity<List<UsuarioDTO>> buscarUsuarios() {
 
         return ResponseEntity.ok(usuarioService.buscarUsuario());
     }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/categorias")
 public class CategoriaController {
 
@@ -25,7 +26,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.salvarCategoria(categoriaDTO));
     }
     @GetMapping
-    public ResponseEntity<List<CategoriaDTO>> buscarCategoria() {
+    public ResponseEntity<List<CategoriaDTO>> buscarCategorias() {
 
         return ResponseEntity.ok(categoriaService.buscarCategoria());
     }
