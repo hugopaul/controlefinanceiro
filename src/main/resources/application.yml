@@ -18,6 +18,9 @@ spring:
     platform: postgres
     driverClassName: org.postgresql.Driver
 
+server:
+  servlet:
+    context-path: /controle-financeiro-local
 
 #security:
 #  oauth2:

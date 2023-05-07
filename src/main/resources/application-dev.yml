@@ -19,6 +19,8 @@ spring:
     driverClassName: org.postgresql.Driver
 
 server:
+  servlet:
+    context-path: /controle-financeiro-dev
   port: 8081
 
 #security:

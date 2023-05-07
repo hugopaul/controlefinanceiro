@@ -17,7 +17,10 @@ spring:
     password: Reisapao123*
     platform: postgres
     driverClassName: org.postgresql.Driver
+
 server:
+  servlet:
+    context-path: /controle-financeiro-prod
   port: 8082
 #security:
 #  oauth2:
