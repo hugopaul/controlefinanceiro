@@ -58,5 +58,12 @@ public class Lancamento {
     @Column
     private LocalDateTime dataAtualizacao;
 
+    @Column
+    private Boolean parcelado;
+    @Column
+    private int qtdParcela;
+    @Column
+    private Boolean despesaFixa;
+
     // getters e setters
 }

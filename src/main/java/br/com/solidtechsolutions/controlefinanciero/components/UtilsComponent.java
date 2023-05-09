@@ -31,6 +31,10 @@ public class UtilsComponent {
         entity.setCategoria(dto.getCategoria());
         entity.setTipoGasto(dto.getTipoGasto());
         entity.setUsuario(dto.getUsuario());
+        entity.setQtdParcela(dto.getQtdParcela());
+        entity.setParcelado(dto.getParcelado());
+        entity.setDespesaFixa(dto.getDespesaFixa());
+
         return entity;
     }
     public Categoria toEntityCategoria(CategoriaDTO dto) {
@@ -134,6 +138,9 @@ public class UtilsComponent {
                     dto.setValor(String.valueOf(entity.getValor()));
                     dto.setDataCriacao(entity.getDataCriacao());
                     dto.setDataAtualizacao(entity.getDataAtualizacao());
+                    dto.setQtdParcela(entity.getQtdParcela());
+                    dto.setParcelado(entity.getParcelado());
+                    dto.setDespesaFixa(entity.getDespesaFixa());
                     return dto;
                 })
                 .collect(Collectors.toList());
