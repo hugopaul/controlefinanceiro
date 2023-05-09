@@ -21,8 +21,13 @@ public class UtilsComponent {
     public Lancamento toEntityLancamento(LancamentoDTO dto) {
         Lancamento entity = new Lancamento();
         entity.setDescricao(dto.getDescricao());
-        entity.setValor(new BigDecimal(dto.getValor().replace(",", "").replace(".", "")));
-        entity.setDataHora(LocalDateTime.now());
+        String valorSemCaracteres = dto.getValor().replace(",", "").replace(".", "");
+        int index = valorSemCaracteres.length() - 2;
+
+        String valor = valorSemCaracteres.substring(0, index) + "." + valorSemCaracteres.substring(index);
+        entity.setValor(new BigDecimal(valor));
+
+        entity.setDataHora(dto.getDataHora());
         entity.setCategoria(dto.getCategoria());
         entity.setTipoGasto(dto.getTipoGasto());
         entity.setUsuario(dto.getUsuario());
@@ -40,8 +45,8 @@ public class UtilsComponent {
         TipoGasto entity = new TipoGasto();
         entity.setDescricao(dto.getDescricao());
         entity.setNome(dto.getNome());
-        //entity.setDataCriacao(null);
-        //entity.setDataAtualizacao(null);
+        entity.setDataCriacao(LocalDateTime.now());
+        entity.setDataAtualizacao(dto.getDataAtualizacao());
         return entity;
     }
 
@@ -72,8 +77,8 @@ public class UtilsComponent {
         dto.setId(entity.getId());
         dto.setDescricao(entity.getDescricao());
         dto.setNome(entity.getNome());
-        dto.setDataCriacao(null);
-        dto.setDataAtualizacao(null);
+        dto.setDataCriacao(entity.getDataCriacao());
+        dto.setDataAtualizacao(entity.getDataAtualizacao());
         return dto;
     }
 
@@ -84,7 +89,7 @@ public class UtilsComponent {
         entity.setEmail(dto.getEmail());
         entity.setSenha(dto.getSenha());
         entity.setDataAtualizacao(dto.getDataAtualizacao());
-        entity.setDataCriacao(dto.getDataCriacao());
+        entity.setDataCriacao(LocalDateTime.now());
         //entity.setLancamentosGastos(dto.getLancamentosGastos());
 
         return entity;
@@ -141,8 +146,8 @@ public class UtilsComponent {
                     dto.setId(entity.getId());
                     dto.setDescricao(entity.getDescricao());
                     dto.setNome(entity.getNome());
-                    //dto.setDataCriacao(entity.getDataCriacao());
-                    //dto.setDataAtualizacao(entity.getDataAtualizacao());
+                    dto.setDataCriacao(entity.getDataCriacao());
+                    dto.setDataAtualizacao(entity.getDataAtualizacao());
                     return dto;
                 })
                 .collect(Collectors.toList());

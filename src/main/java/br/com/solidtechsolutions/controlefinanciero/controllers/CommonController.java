@@ -28,6 +28,6 @@ public class CommonController {
     @GetMapping
     public ResponseEntity<ConcatenadosDTO> buscarConcatenados() {
         ConcatenadosDTO concatenadosDTO = concatenadosService.getAll();
-        return ResponseEntity.status(200).body(concatenadosDTO);
+        return ResponseEntity.ok(concatenadosDTO);
     }
 }

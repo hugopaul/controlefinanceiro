@@ -1,6 +1,7 @@
 package br.com.solidtechsolutions.controlefinanciero.controllers;
 
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.CategoriaDTO;
+import br.com.solidtechsolutions.controlefinanciero.models.DTO.ConcatenadosDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
 import br.com.solidtechsolutions.controlefinanciero.services.LancamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,8 @@ public class LancamentoController {
     }
     @GetMapping
     public ResponseEntity<List<LancamentoDTO>> buscarLancamentos() {
+        List<LancamentoDTO> lancamentoDTOs = lancamentoService.buscarLancamento();
 
-        return ResponseEntity.ok(lancamentoService.buscarLancamento());
+        return ResponseEntity.ok(lancamentoDTOs);
     }
 }
