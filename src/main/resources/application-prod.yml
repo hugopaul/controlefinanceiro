@@ -5,8 +5,6 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-        show_sql: true
-        format_sql: true
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -22,12 +20,10 @@ server:
   servlet:
     context-path: /controle-financeiro-prod
   port: 8082
-#security:
-#  oauth2:
-#    client:
-#      scope: password
-#  jwt:
-#    signing-key: aW1z
-#    url: http://localhost:4200
-#  expiration: 600000
-#  secret: pontoeletronico
+application:
+  security:
+    jwt:
+      secret-key: 586E3272357538782F413F4428472B4B6250655367566B597033733676397924
+      expiration: 10000000
+      refresh-token:
+        expiration: 1000000

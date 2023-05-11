@@ -22,12 +22,10 @@ server:
   servlet:
     context-path: /controle-financeiro-local
 
-#security:
-#  oauth2:
-#    client:
-#      scope: password
-#  jwt:
-#    signing-key: aW1z
-#    url: http://localhost:4200
-#  expiration: 600000
-#  secret: pontoeletronico
+application:
+  security:
+    jwt:
+      secret-key: 586E3272357538782F413F4428472B4B6250655367566B597033733676397924
+      expiration: 10000000
+      refresh-token:
+        expiration: 1000000

@@ -8,6 +8,9 @@ import br.com.solidtechsolutions.controlefinanciero.models.DTO.UsuarioDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.Lancamento;
 import br.com.solidtechsolutions.controlefinanciero.models.TipoGasto;
 import br.com.solidtechsolutions.controlefinanciero.models.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -18,6 +21,10 @@ import java.util.stream.Collectors;
 
 @Component
 public class UtilsComponent {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public Lancamento toEntityLancamento(LancamentoDTO dto) {
         Lancamento entity = new Lancamento();
         entity.setDescricao(dto.getDescricao());
@@ -91,7 +98,8 @@ public class UtilsComponent {
         entity.setId(dto.getId());
         entity.setNome(dto.getNome());
         entity.setEmail(dto.getEmail());
-        entity.setSenha(dto.getSenha());
+        entity.setSenha(passwordEncoder.encode(dto.getSenha()));
+        entity.setRole(dto.getRole());
         entity.setDataAtualizacao(dto.getDataAtualizacao());
         entity.setDataCriacao(LocalDateTime.now());
         //entity.setLancamentosGastos(dto.getLancamentosGastos());

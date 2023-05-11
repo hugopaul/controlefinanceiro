@@ -1,6 +1,7 @@
 package br.com.solidtechsolutions.controlefinanciero.models.DTO;
 
 import br.com.solidtechsolutions.controlefinanciero.models.Lancamento;
+import br.com.solidtechsolutions.controlefinanciero.models.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +21,8 @@ public class UsuarioDTO {
     private String nome;
     private String email;
     private String senha;
+    private Role role;
+
     //private List<Lancamento> lancamentosGastos;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
