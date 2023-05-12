@@ -27,3 +27,5 @@ application:
       expiration: 10000000
       refresh-token:
         expiration: 1000000
+security:
+  host: http://solidtechsolutions.com.br/
