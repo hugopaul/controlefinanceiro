@@ -30,7 +30,7 @@ public class LancamentoDTO {
 
     private Boolean parcelado;
 
-    private int qtdParcela;
+    private Integer qtdParcela;
 
     private Boolean despesaFixa;
 }

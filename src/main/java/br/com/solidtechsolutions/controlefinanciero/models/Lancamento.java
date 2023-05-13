@@ -61,7 +61,7 @@ public class Lancamento {
     @Column
     private Boolean parcelado;
     @Column
-    private int qtdParcela;
+    private Integer qtdParcela;
     @Column
     private Boolean despesaFixa;
 
