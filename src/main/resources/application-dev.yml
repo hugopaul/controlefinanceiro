@@ -31,4 +31,4 @@ application:
       refresh-token:
         expiration: 1000000
 security:
-  host: http://solidtechsolutions.com.br/
+  host: http://45.56.70.78:100/
