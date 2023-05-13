@@ -31,4 +31,4 @@ application:
       refresh-token:
         expiration: 1000000
 security:
-  host: https://solidtechsolutions.com.br/controle-dev
+  host: https://solidtechsolutions.com.br/
