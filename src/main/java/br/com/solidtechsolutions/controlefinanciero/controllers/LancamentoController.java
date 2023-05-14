@@ -1,7 +1,6 @@
 package br.com.solidtechsolutions.controlefinanciero.controllers;
 
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.CategoriaDTO;
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.ConcatenadosDTO;
+import br.com.solidtechsolutions.controlefinanciero.models.charts.GastosPorDia;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
 import br.com.solidtechsolutions.controlefinanciero.services.LancamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +32,5 @@ public class LancamentoController {
 
         return ResponseEntity.ok(lancamentoDTOs);
     }
+
 }

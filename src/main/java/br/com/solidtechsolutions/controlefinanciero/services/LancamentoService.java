@@ -1,8 +1,8 @@
 package br.com.solidtechsolutions.controlefinanciero.services;
 
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.CategoriaDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
-import br.com.solidtechsolutions.controlefinanciero.models.Lancamento;
+import br.com.solidtechsolutions.controlefinanciero.models.charts.GastosPorDia;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
