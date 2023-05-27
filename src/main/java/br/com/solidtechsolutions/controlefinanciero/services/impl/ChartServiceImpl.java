@@ -1,6 +1,6 @@
 package br.com.solidtechsolutions.controlefinanciero.services.impl;
 
-import br.com.solidtechsolutions.controlefinanciero.models.charts.GastosPorDia;
+import br.com.solidtechsolutions.controlefinanciero.models.charts.Gasto;
 import br.com.solidtechsolutions.controlefinanciero.repositories.GastoPorDiaRepository;
 import br.com.solidtechsolutions.controlefinanciero.services.ChartService;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +18,14 @@ public class ChartServiceImpl implements ChartService {
     }
 
     @Override
-    public ResponseEntity<List<GastosPorDia>> buscarValorDiarioUltimos30() {
-        List<GastosPorDia> resultados = gastoPorDiaRepository.buscarGastosPorDiaUltimos30Dias();
-        System.out.println(resultados);
+    public ResponseEntity<List<Gasto>> buscarValorDiarioUltimos30() {
+        List<Gasto> resultados = gastoPorDiaRepository.buscarGastosPorDiaUltimos30Dias();
+        return ResponseEntity.ok(resultados);
+    }
+
+    @Override
+    public ResponseEntity<List<Gasto>> buscarValorTotalUltimosMeses() {
+        List<Gasto> resultados = gastoPorDiaRepository.buscarValorTotalUltimosMeses();
         return ResponseEntity.ok(resultados);
     }
 

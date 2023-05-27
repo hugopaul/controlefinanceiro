@@ -1,6 +1,7 @@
 package br.com.solidtechsolutions.controlefinanciero.models;
 
 
+import br.com.solidtechsolutions.controlefinanciero.models.DTO.UsuarioDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonTypeId;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

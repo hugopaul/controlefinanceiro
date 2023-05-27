@@ -1,5 +1,6 @@
 package br.com.solidtechsolutions.controlefinanciero.controllers;
 
+import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.TipoGastoDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.UsuarioDTO;
 import br.com.solidtechsolutions.controlefinanciero.services.TipoGastoService;
@@ -31,5 +32,14 @@ public class UsuarioController {
     public ResponseEntity<List<UsuarioDTO>> buscarUsuarios() {
 
         return ResponseEntity.ok(usuarioService.buscarUsuario());
+    }
+    @DeleteMapping
+    public ResponseEntity<Boolean> deletarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        boolean deleted = usuarioService.deleteUserById(usuarioDTO.getId());
+        if (deleted) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

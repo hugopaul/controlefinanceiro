@@ -13,9 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class GastosPorDia {
+public class Gasto {
     @Id
-    private String dia;
+    @Column(name = "dia_mes_ano")
+    private String diaMesAno;
 
     @Column(name = "total_gasto")
     private Double totalGasto;

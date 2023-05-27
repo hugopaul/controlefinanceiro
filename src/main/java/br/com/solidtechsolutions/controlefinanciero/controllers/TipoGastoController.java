@@ -2,6 +2,7 @@ package br.com.solidtechsolutions.controlefinanciero.controllers;
 
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.CategoriaDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.TipoGastoDTO;
+import br.com.solidtechsolutions.controlefinanciero.models.DTO.UsuarioDTO;
 import br.com.solidtechsolutions.controlefinanciero.services.CategoriaService;
 import br.com.solidtechsolutions.controlefinanciero.services.TipoGastoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,14 @@ public class TipoGastoController {
     public ResponseEntity<List<TipoGastoDTO>> buscarTipoGastos() {
 
         return ResponseEntity.ok(tipoGastoService.buscarTipoGasto());
+    }
+    @DeleteMapping
+    public ResponseEntity<Boolean> deletarTipoGasto(@RequestBody TipoGastoDTO tipoGastoDTO) {
+        boolean deleted = tipoGastoService.deleteUserById(tipoGastoDTO.getId());
+        if (deleted) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

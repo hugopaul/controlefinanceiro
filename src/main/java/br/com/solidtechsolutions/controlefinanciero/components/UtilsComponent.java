@@ -37,7 +37,8 @@ public class UtilsComponent {
         entity.setDataHora(dto.getDataHora());
         entity.setCategoria(dto.getCategoria());
         entity.setTipoGasto(dto.getTipoGasto());
-        entity.setUsuario(dto.getUsuario());
+
+        entity.setUsuario(toEntityUsuario(dto.getUsuario(), false));
         entity.setQtdParcela(dto.getQtdParcela());
         entity.setParcelado(dto.getParcelado());
         entity.setDespesaFixa(dto.getDespesaFixa());
@@ -79,7 +80,7 @@ public class UtilsComponent {
         dto.setDataHora(entity.getDataHora());
         dto.setCategoria(entity.getCategoria());
         dto.setTipoGasto(entity.getTipoGasto());
-        dto.setUsuario(entity.getUsuario());
+        dto.setUsuario(toDtoUsuario(entity.getUsuario()));
         return dto;
     }
 
@@ -93,13 +94,14 @@ public class UtilsComponent {
         return dto;
     }
 
-    public Usuario toEntityUsuario(UsuarioDTO dto) {
+    public Usuario toEntityUsuario(UsuarioDTO dto, boolean checkPass) {
         Usuario entity = new Usuario();
         entity.setId(dto.getId());
         entity.setNome(dto.getNome());
         entity.setEmail(dto.getEmail());
-        entity.setSenha(passwordEncoder.encode(dto.getSenha()));
-        entity.setRole(dto.getRole());
+        if(checkPass){
+            entity.setSenha(passwordEncoder.encode(dto.getSenha()));
+        }
         entity.setDataAtualizacao(dto.getDataAtualizacao());
         entity.setDataCriacao(LocalDateTime.now());
         //entity.setLancamentosGastos(dto.getLancamentosGastos());
@@ -141,7 +143,7 @@ public class UtilsComponent {
                     dto.setDescricao(entity.getDescricao());
                     dto.setTipoGasto(entity.getTipoGasto());
                     dto.setCategoria(entity.getCategoria());
-                    dto.setUsuario(entity.getUsuario());
+                    dto.setUsuario(toDtoUsuario(entity.getUsuario()));
                     dto.setDataHora(entity.getDataHora());
                     dto.setValor(String.valueOf(entity.getValor()));
                     dto.setDataCriacao(entity.getDataCriacao());

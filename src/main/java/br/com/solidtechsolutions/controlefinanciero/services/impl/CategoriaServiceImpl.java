@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
@@ -34,5 +35,14 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Override
     public List<CategoriaDTO> buscarCategoria() {
         return serviceUtils.toDtoListCategoria(categoriaRepository.findAll());
+    }
+
+    @Override
+    public boolean deleteUserById(UUID id) {
+        if (categoriaRepository.existsById(id)) {
+            categoriaRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

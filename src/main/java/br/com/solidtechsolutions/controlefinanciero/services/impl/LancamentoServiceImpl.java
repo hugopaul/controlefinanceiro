@@ -3,16 +3,12 @@ package br.com.solidtechsolutions.controlefinanciero.services.impl;
 import br.com.solidtechsolutions.controlefinanciero.components.UtilsComponent;
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
 import br.com.solidtechsolutions.controlefinanciero.models.Lancamento;
-import br.com.solidtechsolutions.controlefinanciero.models.charts.GastosPorDia;
-import br.com.solidtechsolutions.controlefinanciero.repositories.GastoPorDiaRepository;
 import br.com.solidtechsolutions.controlefinanciero.repositories.LancamentoRepository;
 import br.com.solidtechsolutions.controlefinanciero.services.LancamentoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -36,6 +32,15 @@ public class LancamentoServiceImpl implements LancamentoService {
     @Override
     public List<LancamentoDTO> buscarLancamento() {
         return serviceUtils.toDtoListLancamento(lancamentoRepository.findAll());
+    }
+
+    @Override
+    public Boolean deleteUserById(UUID id) {
+        if (lancamentoRepository.existsById(id)) {
+            lancamentoRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
 }

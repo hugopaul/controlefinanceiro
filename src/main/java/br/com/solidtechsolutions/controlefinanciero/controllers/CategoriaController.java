@@ -1,6 +1,7 @@
 package br.com.solidtechsolutions.controlefinanciero.controllers;
 
 import br.com.solidtechsolutions.controlefinanciero.models.DTO.CategoriaDTO;
+import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
 import br.com.solidtechsolutions.controlefinanciero.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,15 @@ public class CategoriaController {
     public ResponseEntity<List<CategoriaDTO>> buscarCategorias() {
 
         return ResponseEntity.ok(categoriaService.buscarCategoria());
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Boolean> deletarCategoria(@RequestBody CategoriaDTO categoriaDTO) {
+        boolean deleted = categoriaService.deleteUserById(categoriaDTO.getId());
+        if (deleted) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

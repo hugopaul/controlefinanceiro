@@ -21,9 +21,6 @@ public class UsuarioDTO {
     private String nome;
     private String email;
     private String senha;
-    private Role role;
-
-    //private List<Lancamento> lancamentosGastos;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
 }

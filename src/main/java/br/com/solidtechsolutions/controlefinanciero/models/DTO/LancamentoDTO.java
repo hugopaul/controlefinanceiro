@@ -24,7 +24,7 @@ public class LancamentoDTO {
     private String valor;
     private Categoria categoria;
     private TipoGasto tipoGasto;
-    private Usuario usuario;
+    private UsuarioDTO usuario;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
 

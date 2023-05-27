@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -30,7 +31,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     public ResponseEntity<UsuarioDTO> salvarUsuario(UsuarioDTO usuarioDTO) {
         try{
 
-            Usuario usuario = serviceUtils.toEntityUsuario(usuarioDTO);
+            Usuario usuario = serviceUtils.toEntityUsuario(usuarioDTO, true);
             UsuarioDTO usuarioDTOreturn = serviceUtils.toDtoUsuario(usuarioRepository.save(usuario));
             return ResponseEntity.ok().body(usuarioDTOreturn);
         } catch (Exception e){
@@ -44,5 +45,14 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public List<UsuarioDTO> buscarUsuario() {
         return serviceUtils.toDtoListUsuario(usuarioRepository.findAll());
+    }
+
+    @Override
+    public boolean deleteUserById(UUID id) {
+        if (usuarioRepository.existsById(id)) {
+            usuarioRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
