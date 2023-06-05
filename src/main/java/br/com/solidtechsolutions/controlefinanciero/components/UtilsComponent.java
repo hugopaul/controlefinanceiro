@@ -33,6 +33,7 @@ public class UtilsComponent {
         int index = valorSemCaracteres.length() - 2;
         String valor = valorSemCaracteres.substring(0, index) + "." + valorSemCaracteres.substring(index);
         entity.setValor(new BigDecimal(valor));
+        System.out.println(dto.getParcelado());
         if(dto.getParcelado()){
             String valorDaParcelaSemCaracteres = dto.getValorParcela().replace(",", "").replace(".", "");
             int indexx = valorDaParcelaSemCaracteres.length() - 2;
