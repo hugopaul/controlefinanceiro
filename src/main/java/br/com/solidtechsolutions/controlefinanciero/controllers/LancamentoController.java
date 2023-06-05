@@ -13,7 +13,7 @@ import java.util.List;
 public class LancamentoController {
 
 
-    private LancamentoService lancamentoService;
+    private final LancamentoService lancamentoService;
 
     @Autowired
     public LancamentoController(LancamentoService lancamentoService) {

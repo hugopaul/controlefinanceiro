@@ -26,6 +26,9 @@ public class LancamentoServiceImpl implements LancamentoService {
     @Override
     public LancamentoDTO salvarLancamento(LancamentoDTO lancamentoDTO) {
         Lancamento lancamento = serviceUtils.toEntityLancamento(lancamentoDTO);
+        if (lancamento.getParcelado()){
+
+        }
         return serviceUtils.toDtoLancamento(lancamentoRepository.save(lancamento));
     }
 

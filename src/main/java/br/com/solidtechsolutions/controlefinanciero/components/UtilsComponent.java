@@ -28,12 +28,17 @@ public class UtilsComponent {
     public Lancamento toEntityLancamento(LancamentoDTO dto) {
         Lancamento entity = new Lancamento();
         entity.setDescricao(dto.getDescricao());
+
         String valorSemCaracteres = dto.getValor().replace(",", "").replace(".", "");
         int index = valorSemCaracteres.length() - 2;
-
         String valor = valorSemCaracteres.substring(0, index) + "." + valorSemCaracteres.substring(index);
         entity.setValor(new BigDecimal(valor));
-
+        if(dto.getParcelado()){
+            String valorDaParcelaSemCaracteres = dto.getValorParcela().replace(",", "").replace(".", "");
+            int indexx = valorDaParcelaSemCaracteres.length() - 2;
+            String valorDaParcela = valorDaParcelaSemCaracteres.substring(0, indexx) + "." + valorDaParcelaSemCaracteres.substring(indexx);
+            entity.setValorParcela(new BigDecimal(valorDaParcela));
+        }
         entity.setDataHora(dto.getDataHora());
         entity.setCategoria(dto.getCategoria());
         entity.setTipoGasto(dto.getTipoGasto());
@@ -81,6 +86,10 @@ public class UtilsComponent {
         dto.setCategoria(entity.getCategoria());
         dto.setTipoGasto(entity.getTipoGasto());
         dto.setUsuario(toDtoUsuario(entity.getUsuario()));
+        if(entity.getParcelado()) {
+            dto.setValorParcela(entity.getValorParcela().toString());
+        }
+        dto.setParcelado(entity.getParcelado());
         return dto;
     }
 

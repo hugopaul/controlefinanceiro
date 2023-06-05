@@ -27,10 +27,8 @@ public class LancamentoDTO {
     private UsuarioDTO usuario;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
-
     private Boolean parcelado;
-
     private Integer qtdParcela;
-
+    private String valorParcela;
     private Boolean despesaFixa;
 }

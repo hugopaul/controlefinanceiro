@@ -65,6 +65,8 @@ public class Lancamento {
     private Integer qtdParcela;
     @Column
     private Boolean despesaFixa;
+    @Column
+    private BigDecimal valorParcela;
 
     // getters e setters
 }

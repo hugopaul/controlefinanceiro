@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(value = "/api/common", produces = "application/json")
 public class CommonController {
 
-    private ConcatenadosService concatenadosService;
+    private final ConcatenadosService concatenadosService;
 
     @Autowired
     public CommonController(ConcatenadosService concatenadosService) {

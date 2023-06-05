@@ -9,4 +9,8 @@ public interface ChartService {
     ResponseEntity<List<Gasto>> buscarValorDiarioUltimos30();
 
     ResponseEntity<List<Gasto>> buscarValorTotalUltimosMeses();
+
+    ResponseEntity<Gasto> buscarMediaDiariaUltimos30Dias();
+
+    ResponseEntity<Gasto> buscarMediaMensalUltimosMeses();
 }

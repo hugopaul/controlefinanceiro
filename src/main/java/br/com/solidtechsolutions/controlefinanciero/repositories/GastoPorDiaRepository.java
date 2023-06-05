@@ -22,4 +22,16 @@ public interface GastoPorDiaRepository extends JpaRepository<Gasto, String> {
             "GROUP BY dia_mes_ano\n" +
             "ORDER BY dia_mes_ano ASC", nativeQuery = true)
     List<Gasto> buscarValorTotalUltimosMeses();
+
+    @Query(value = "SELECT 'Média diária ultimos 30 dias' as dia_mes_ano,\n" +
+            "AVG(valor) AS total_gasto\n" +
+            "FROM lancamento\n" +
+            "WHERE data_hora >= CURRENT_DATE - INTERVAL '30 days'", nativeQuery = true)
+    Gasto buscarMediaDiariaUltimos30Dias();
+
+    @Query(value = "SELECT 'Média mensal ultimos 12 meses' as dia_mes_ano,\n" +
+            "AVG(valor) AS total_gasto\n" +
+            "FROM lancamento\n" +
+            "WHERE data_hora >= CURRENT_DATE - INTERVAL '12 months'", nativeQuery = true)
+    Gasto buscarMediaMensalUltimosMeses();
 }

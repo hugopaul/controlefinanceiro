@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api/tipogastos")
 public class TipoGastoController {
 
-    private TipoGastoService tipoGastoService;
+    private final TipoGastoService tipoGastoService;
 
     @Autowired
     public TipoGastoController(TipoGastoService tipoGastoService) {

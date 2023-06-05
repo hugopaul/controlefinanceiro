@@ -31,5 +31,15 @@ public class ChartController {
         return chartService.buscarValorTotalUltimosMeses();
     }
 
+    @GetMapping("/buscarMediaDiariaUltimos30Dias")
+    public ResponseEntity<Gasto> buscarMediaDiariaUltimos30Dias(){
+        return chartService.buscarMediaDiariaUltimos30Dias();
+    }
+
+    @GetMapping("/buscarMediaMensalUltimosMeses")
+    public ResponseEntity<Gasto> buscarMediaMensalUltimosMeses(){
+        return chartService.buscarMediaMensalUltimosMeses();
+    }
+
 
 }
