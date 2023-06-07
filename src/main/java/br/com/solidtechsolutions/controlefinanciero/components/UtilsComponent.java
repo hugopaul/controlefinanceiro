@@ -1,13 +1,7 @@
 package br.com.solidtechsolutions.controlefinanciero.components;
 
-import br.com.solidtechsolutions.controlefinanciero.models.Categoria;
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.CategoriaDTO;
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.LancamentoDTO;
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.TipoGastoDTO;
-import br.com.solidtechsolutions.controlefinanciero.models.DTO.UsuarioDTO;
-import br.com.solidtechsolutions.controlefinanciero.models.Lancamento;
-import br.com.solidtechsolutions.controlefinanciero.models.TipoGasto;
-import br.com.solidtechsolutions.controlefinanciero.models.Usuario;
+import br.com.solidtechsolutions.controlefinanciero.models.*;
+import br.com.solidtechsolutions.controlefinanciero.models.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -191,6 +185,46 @@ public class UtilsComponent {
                     //dto.setLancamentosGastos(entity.getLancamentosGastos());
                     dto.setDataCriacao(entity.getDataCriacao());
                     dto.setDataAtualizacao(entity.getDataAtualizacao());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
+    public EmprestimoDTO toDtoEmprestimo(Emprestimo save) {
+        EmprestimoDTO emprestimoDTO = new EmprestimoDTO();
+        emprestimoDTO.setDataAtualizacao(save.getDataAtualizacao());
+        emprestimoDTO.setDataCriacao(save.getDataCriacao());
+        emprestimoDTO.setId(save.getId());
+        emprestimoDTO.setDescricao(save.getDescricao());
+        emprestimoDTO.setValor(String.valueOf(save.getValor()));
+        emprestimoDTO.setNome(save.getNome());
+        return  emprestimoDTO;
+    }
+
+    public Emprestimo toEntityEmprestimo(EmprestimoDTO emprestimoDTO) {
+        Emprestimo emprestimo = new Emprestimo();
+        emprestimo.setDataAtualizacao(emprestimoDTO.getDataAtualizacao());
+        emprestimo.setDataCriacao(emprestimoDTO.getDataCriacao());
+        emprestimo.setNome(emprestimoDTO.getNome());
+        emprestimo.setDescricao(emprestimoDTO.getDescricao());
+        String valorSemCaracteres = emprestimoDTO.getValor().replace(",", "").replace(".", "");
+        int index = valorSemCaracteres.length() - 2;
+        String valor = valorSemCaracteres.substring(0, index) + "." + valorSemCaracteres.substring(index);
+        emprestimo.setValor(new BigDecimal(valor));
+        emprestimo.setId(emprestimoDTO.getId());
+        return emprestimo;
+    }
+
+    public List<EmprestimoDTO> toDtoListEmprestimo(List<Emprestimo> all) {
+        return all.stream()
+                .map(entity -> {
+                    EmprestimoDTO dto = new EmprestimoDTO();
+                    dto.setId(entity.getId());
+                    dto.setNome(entity.getNome());
+                    dto.setDataCriacao(entity.getDataCriacao());
+                    dto.setDataAtualizacao(entity.getDataAtualizacao());
+                    dto.setValor(String.valueOf(entity.getValor()));
+                    dto.setDescricao(entity.getDescricao());
                     return dto;
                 })
                 .collect(Collectors.toList());
